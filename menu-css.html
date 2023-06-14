@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu com efeieto de hover - Práticas da @code55.io </title>
+    <style>
+
+        /*Definindo padrões para a página*/
+        * {
+            font-family: 'Segoe UI', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        html {
+            padding: 5rem;
+            background-color: #06152A;
+            color: #EFEFEF;
+        }
+
+
+        /* Padrões da tag <main> */
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        /*Ajustes do top_content */
+        .top_content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: auto;
+        }
+
+        h2 {
+            opacity: .2;
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        .logo {
+            filter: drop-shadow(2px 2px 5px black);
+            opacity: .3;
+        }
+
+        /* Definições do menu */
+        .main_menu {
+            flex: 1 0;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main_menu ul {
+            display: flex; /* Adicionado para alinhar os itens horizontalmente */
+            justify-content: center; /* Adicionado para alinhar os itens horizontalmente */
+            list-style: none; /* Removido o estilo de marcadores da lista */
+            padding: 0; /* Removido o padding da lista */
+        }
+
+        .main_menu ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .main_menu a {
+            text-decoration: none;
+            letter-spacing: 1.4px;
+            font-size: 30px;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 8px 5px 9px 5px;
+            transition: all .5s ease;
+            position: relative;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+
+
+        }
+
+        .main_menu a:hover {
+            transition: all .5s ease;
+            color: #09B734;
+        }
+
+        /*Acrescentando a imagem do "check" ao hover */
+        .main_menu a:before {
+            background-image: url("./double-check.png");
+            background-size: 100%;
+            height: 30px;
+            width: 40px;
+            top: -30px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            opacity: .8;
+        }
+
+        .main_menu a:hover::before {
+            position: absolute;
+            content: '';
+            animation: imagemCheck .3s ease-in-out;
+        }
+
+        /*Definições da imagem */
+        @keyframes imagemCheck {
+            0% {
+                opacity: 0;
+                height: 3px;
+                width: 3px;
+                top: 30px;
+            }
+
+            100% {
+                opacity: .8;
+                height: 29px;
+                width: 40px;
+                top: -25px;
+            }
+
+        }
+
+        .main_menu a::after {
+            position: absolute;
+            content: '';
+            left: 4px;
+            bottom: 7px;
+            height: 1px;
+            width: 0;
+            padding: 0;
+            z-index: -1;
+            transition: all .5s ease;
+        }
+
+        .main_menu a:hover::after {
+            background: rgba(255, 255, 255, 0.24);
+            opacity: 1;
+            width: 80%;
+            position: absolute;
+            content: '';
+            left: 4px;
+            bottom: 7px;
+            height: 1px;
+            width: 0;
+            padding: 0;
+            z-index: -1;
+            background: #09B734;
+            transition: all .5s ease;
+            opacity: 1;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="content">
+        <div class="top_content">
+            <img src="./code55.png" alt="Logo Code55" class="logo">
+            <h2>MENU CSS</h2>
+        </div>
+        
+        <nav class="main_menu">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="https://www.code55.io/">CODE55</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+</body>
+
+</html>
